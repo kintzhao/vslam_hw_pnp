@@ -329,8 +329,10 @@ int main(int argc, char** argv)
     bool init_flag = false;
     std::vector<Eigen::Vector3d> map_points;
     map_points.resize(landmarks.size());
-    time_t start, end;
-    time(&start);
+    //time_t start, end;
+    //time(&start);
+    clock_t start,ends;
+    start=clock();
     for (size_t i = 1; i < pose_num; i++)
     {
         /* get features of current frame */
@@ -466,9 +468,12 @@ int main(int argc, char** argv)
         features_matched_last = features_matched_cur;
         window.spinOnce(1, true);
     }
-    time(&end);
-    double cost = difftime(end, start);
-    std::cout<<"Time cost:" <<cost<<" seconds"<<std::endl;
+    //time(&end);
+    //double cost = difftime(end, start);
+    //std::cout<<"Time cost:" <<cost<<" seconds"<<std::endl;
+    ends=clock();
+    std::cout<<"Time cost:" <<ends-start<<" ms"<<std::endl;
+
     /* save trajectory for evalution */
     saveTrajectoryTUM("frame_traj_gt_" + methods_names[current_method]+".txt", pose_gt);
     saveTrajectoryTUM("frame_traj_est_"+ methods_names[current_method]+".txt", pose_est);
