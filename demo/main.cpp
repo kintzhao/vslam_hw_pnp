@@ -230,8 +230,33 @@ bool createInitMap(const std::vector<cv::Point2f> &point_curr,
     return true;
 }
 
-int main()
+// SOLVEPNP_ITERATIVE = 0,
+//       = 1, //!< EPnP: Efficient Perspective-n-Point Camera Pose Estimation @cite lepetit2009epnp
+//        = 2, //!< Complete Solution Classification for the Perspective-Three-Point Problem @cite gao2003complete
+//        = 3, //!< A Direct Least-Squares (DLS) Method for PnP  @cite hesch2011direct
+//       = 4, //!< Exhaustive Linearization for Robust Camera Pose and Focal Length Estimation @cite penate2013exhaustive
+//       = 5, //!< An Efficient Algebraic Solution to the Perspective-Three-Point Problem @cite Ke17
+//  = 6     //!< Used for count
+
+
+int main(int argc, char** argv)
 {
+    std::vector<std::string> methods_names;
+    methods_names.push_back("SOLVEPNP_ITERATIVE");
+    methods_names.push_back("SOLVEPNP_EPNP");
+    methods_names.push_back("SOLVEPNP_P3P");
+    methods_names.push_back("SOLVEPNP_DLS");
+    methods_names.push_back("SOLVEPNP_UPNP");
+    methods_names.push_back("SOLVEPNP_AP3P");
+    methods_names.push_back("SOLVEPNP_MAX_COUNT");
+
+    int current_method = 0;
+    if(argc > 1 && std::atoi(argv[1]) < (int)methods_names.size() )
+    {
+        current_method = std::atoi(argv[1]);
+    }
+    std::cout<<" methods(index: 0~6):"<<methods_names[current_method]<<std::endl;
+
     cv::viz::Viz3d window("window");
     cv::viz::WCoordinateSystem world_coord(1.0), camera_coord(0.5);
     window.showWidget("Coordinate", world_coord);
@@ -337,12 +362,12 @@ int main()
         /* initial map create */
         if (!init_flag)
         {
-#if 0
+        #if 0
             /* create initial map from groundtruth */
             Twc_curr = v_Twc[i];
             map_points = landmarks;
             init_flag = true;
-#else
+        #else
             /* create initial map by solve F matrix */
             Eigen::Matrix4d T_curr_last;
             init_flag = createInitMap(point_curr, point_last, cv_K, T_curr_last, map_points, good_matches);
@@ -365,7 +390,7 @@ int main()
                 mpt *= t_scale;
                 mpt = Twc_last.block(0, 0, 3, 3) * mpt + Twc_last.block(0, 3, 3, 1);
             }
-#endif
+        #endif
             if (!init_flag)
             {
                 continue;
@@ -386,9 +411,9 @@ int main()
 
             // TODO homework
             cv::Mat R_vec, T_vec;
-	        solvePnPRansac(obj_pts, img_pts, cv_K, cv::Mat::zeros(4, 1, CV_64FC1), 
-                                R_vec, T_vec, false,100,0);
-            std::cout<<"R_vec: "<<R_vec<<" T_vec: "<<T_vec<<std::endl;
+	        solvePnPRansac(obj_pts, img_pts, cv_K, cv::Mat::zeros(4, 1, CV_64FC1), R_vec, T_vec, false,100, current_method);
+	        //solveP3P(obj_pts, img_pts, cv_K, cv::Mat::zeros(4, 1, CV_64FC1), R_vec, T_vec, cv::SOLVEPNP_EPNP);
+            //std::cout<<"R_vec: "<<R_vec<<" T_vec: "<<T_vec<<std::endl;
 
             cv::Mat R_mat;
             cv::Rodrigues(R_vec, R_mat);
@@ -399,9 +424,9 @@ int main()
             cv::cv2eigen(T_vec, T);
             Twc_curr.block(0, 0, 3, 3) = R;
             Twc_curr.block(0, 3, 3, 1) = R.inverse()*(-T);
-            
-            std::cout<<"R: "<<R<<" t: "<<T<<std::endl;
-            std::cout<<"Twc_curr: "<<Twc_curr<<std::endl;
+
+            //std::cout<<"R: "<<R<<" t: "<<T<<std::endl;
+            //std::cout<<"Twc_curr: "<<Twc_curr<<std::endl;
 
         }
 
@@ -449,8 +474,8 @@ int main()
     }
 
     /* save trajectory for evalution */
-    saveTrajectoryTUM("frame_traj_gt.txt", pose_gt);
-    saveTrajectoryTUM("frame_traj_est.txt", pose_est);
+    saveTrajectoryTUM("frame_traj_gt_" + methods_names[current_method]+".txt", pose_gt);
+    saveTrajectoryTUM("frame_traj_est_"+ methods_names[current_method]+".txt", pose_est);
 
     while(!window.wasStopped())
     {
