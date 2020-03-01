@@ -10,6 +10,7 @@
 #include <opencv2/core/eigen.hpp>
 
 #include "two_view_geometry.h"
+#include <time.h>
 
 EIGEN_DEFINE_STL_VECTOR_SPECIALIZATION(Eigen::Matrix2d)
 EIGEN_DEFINE_STL_VECTOR_SPECIALIZATION(Eigen::Matrix3d)
@@ -230,15 +231,6 @@ bool createInitMap(const std::vector<cv::Point2f> &point_curr,
     return true;
 }
 
-// SOLVEPNP_ITERATIVE = 0,
-//       = 1, //!< EPnP: Efficient Perspective-n-Point Camera Pose Estimation @cite lepetit2009epnp
-//        = 2, //!< Complete Solution Classification for the Perspective-Three-Point Problem @cite gao2003complete
-//        = 3, //!< A Direct Least-Squares (DLS) Method for PnP  @cite hesch2011direct
-//       = 4, //!< Exhaustive Linearization for Robust Camera Pose and Focal Length Estimation @cite penate2013exhaustive
-//       = 5, //!< An Efficient Algebraic Solution to the Perspective-Three-Point Problem @cite Ke17
-//  = 6     //!< Used for count
-
-
 int main(int argc, char** argv)
 {
     std::vector<std::string> methods_names;
@@ -337,6 +329,8 @@ int main(int argc, char** argv)
     bool init_flag = false;
     std::vector<Eigen::Vector3d> map_points;
     map_points.resize(landmarks.size());
+    time_t start, end;
+    time(&start);
     for (size_t i = 1; i < pose_num; i++)
     {
         /* get features of current frame */
@@ -453,7 +447,7 @@ int main(int argc, char** argv)
             Eigen::Vector3d twc1 = Twc_curr.block(0, 3, 3, 1);
             cv::Point3d pose_begin(twc0[0], twc0[1], twc0[2]);
             cv::Point3d pose_end(twc1[0], twc1[1], twc1[2]);
-            cv::viz::WLine trag_line(pose_begin, pose_end, cv::viz::Color(0,255,255));
+            cv::viz::WLine trag_line(pose_begin, pose_end, cv::viz::Color(0,100,255));//bgr
             window.showWidget("trag_"+std::to_string(i), trag_line);
 
             Eigen::Matrix3d Rwc1 = Twc_curr.block(0, 0, 3, 3);
@@ -472,7 +466,9 @@ int main(int argc, char** argv)
         features_matched_last = features_matched_cur;
         window.spinOnce(1, true);
     }
-
+    time(&end);
+    double cost = difftime(end, start);
+    std::cout<<"Time cost:" <<cost<<" seconds"<<std::endl;
     /* save trajectory for evalution */
     saveTrajectoryTUM("frame_traj_gt_" + methods_names[current_method]+".txt", pose_gt);
     saveTrajectoryTUM("frame_traj_est_"+ methods_names[current_method]+".txt", pose_est);
