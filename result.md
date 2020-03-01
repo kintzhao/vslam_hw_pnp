@@ -48,14 +48,14 @@ flags - 默认使用CV_ITERATIV迭代法
 
 ### 3.0.  SOLVEPNP_ITERATIVE
 
-   ![image-20200301134449255](/home/robot/tmp/github/hw/hw3/result.assets/image-20200301134449255.png)
+   ![image-20200301134449255](./result.assets/image-20200301134449255.png)
 
    
 
 ```
  evo_traj tum frame_traj_est_SOLVEPNP_ITERATIVE.txt --ref=frame_traj_gt_SOLVEPNP_ITERATIVE.txt -p --plot_mode xyz  --align --correct_scale
 ```
-![image-20200301140209334](/home/robot/tmp/github/hw/hw3/result.assets/image-20200301140209334.png)
+![image-20200301140209334](./result.assets/image-20200301140209334.png)
 
 ```
 evo_ape tum frame_traj_est_SOLVEPNP_ITERATIVE.txt frame_traj_gt_SOLVEPNP_ITERATIVE.txt  -va --plot --plot_mode xyz --save_results SOLVEPNP_ITERATIVE_ape.zip
@@ -93,11 +93,11 @@ frame_traj_gt_SOL...  3.74962  0.0850991
 
 
 ### 3.1. SOLVEPNP_EPNP
-   ![image-20200301134551802](/home/robot/tmp/github/hw/hw3/result.assets/image-20200301134551802.png)
+   ![image-20200301134551802](./result.assets/image-20200301134551802.png)
 ```
  evo_traj tum frame_traj_est_SOLVEPNP_EPNP.txt --ref=frame_traj_gt_SOLVEPNP_EPNP.txt -p --plot_mode xyz  --align --correct_scale
 ```
-![image-20200301141119561](/home/robot/tmp/github/hw/hw3/result.assets/image-20200301141119561.png)
+![image-20200301141119561](./result.assets/image-20200301141119561.png)
 
 ```
 evo_ape tum frame_traj_est_SOLVEPNP_EPNP.txt frame_traj_gt_SOLVEPNP_EPNP.txt  -va --plot --plot_mode xyz --save_results SOLVEPNP_EPNP_ape.zip
@@ -133,12 +133,12 @@ frame_traj_gt_SOL...  0.0467992
 
 ### 3.2. SOLVEPNP_P3P
 
-   ![image-20200301134638955](/home/robot/tmp/github/hw/hw3/result.assets/image-20200301134638955.png)
+   ![image-20200301134638955](./result.assets/image-20200301134638955.png)
 
 ```
  evo_traj tum frame_traj_est_SOLVEPNP_P3P.txt --ref=frame_traj_gt_SOLVEPNP_P3P.txt -p --plot_mode xyz  --align --correct_scale
 ```
-![image-20200301141432883](/home/robot/tmp/github/hw/hw3/result.assets/image-20200301141432883.png)
+![image-20200301141432883](./result.assets/image-20200301141432883.png)
 
 ```
 evo_ape tum frame_traj_est_SOLVEPNP_P3P.txt frame_traj_gt_SOLVEPNP_P3P.txt  -va --plot --plot_mode xyz --save_results SOLVEPNP_P3P_ape.zip
@@ -180,11 +180,11 @@ frame_traj_gt_SOL...  1.47653  0.0427988
 ```
 
 ### 3.3. SOLVEPNP_DLS
-   ![image-20200301134714928](/home/robot/tmp/github/hw/hw3/result.assets/image-20200301134714928.png)
+   ![image-20200301134714928](./result.assets/image-20200301134714928.png)
 ```
  evo_traj tum frame_traj_est_SOLVEPNP_DLS.txt --ref=frame_traj_gt_SOLVEPNP_DLS.txt -p --plot_mode xyz  --align --correct_scale
 ```
-![image-20200301141829135](/home/robot/tmp/github/hw/hw3/result.assets/image-20200301141829135.png)
+![image-20200301141829135](./result.assets/image-20200301141829135.png)
 
 ```
 evo_ape tum frame_traj_est_SOLVEPNP_DLS.txt frame_traj_gt_SOLVEPNP_DLS.txt  -va --plot --plot_mode xyz --save_results SOLVEPNP_DLS_ape.zip
@@ -221,11 +221,11 @@ frame_traj_gt_SOL...  1.43565  0.0454917
 ```
 
 ### 3.4. SOLVEPNP_UPNP
-   ![image-20200301134824018](/home/robot/tmp/github/hw/hw3/result.assets/image-20200301134824018.png)
+   ![image-20200301134824018](./result.assets/image-20200301134824018.png)
 ```
  evo_traj tum frame_traj_est_SOLVEPNP_UPNP.txt --ref=frame_traj_gt_SOLVEPNP_UPNP.txt -p --plot_mode xyz  --align --correct_scale
 ```
-![image-20200301142132110](/home/robot/tmp/github/hw/hw3/result.assets/image-20200301142132110.png)
+![image-20200301142132110](./result.assets/image-20200301142132110.png)
 
 ```
 evo_ape tum frame_traj_est_SOLVEPNP_UPNP.txt frame_traj_gt_SOLVEPNP_UPNP.txt  -va --plot --plot_mode xyz --save_results SOLVEPNP_UPNP_ape.zip
@@ -260,11 +260,11 @@ frame_traj_gt_SOL...  1.28869  0.0444622
 ```
 
 ### 3.5. SOLVEPNP_AP3P
-   ![image-20200301134923696](/home/robot/tmp/github/hw/hw3/result.assets/image-20200301134923696.png)
+   ![image-20200301134923696](./result.assets/image-20200301134923696.png)
 ```
  evo_traj tum frame_traj_est_SOLVEPNP_AP3P.txt --ref=frame_traj_gt_SOLVEPNP_AP3P.txt -p --plot_mode xyz  --align --correct_scale
 ```
-![image-20200301142342844](/home/robot/tmp/github/hw/hw3/result.assets/image-20200301142342844.png)
+![image-20200301142342844](./result.assets/image-20200301142342844.png)
 
 ```
 evo_ape tum frame_traj_est_SOLVEPNP_AP3P.txt frame_traj_gt_SOLVEPNP_AP3P.txt  -va --plot --plot_mode xyz --save_results SOLVEPNP_AP3P_ape.zip
@@ -299,11 +299,11 @@ frame_traj_gt_SOL...  1.29636  0.0484811
 ```
 
 ### 3.6.  SOLVEPNP_MAX_COUNT
-      ![image-20200301134951151](/home/robot/tmp/github/hw/hw3/result.assets/image-20200301134951151.png)
+      ![image-20200301134951151](./result.assets/image-20200301134951151.png)
 ```
  evo_traj tum frame_traj_est_SOLVEPNP_MAX_COUNT.txt --ref=frame_traj_gt_SOLVEPNP_MAX_COUNT.txt -p --plot_mode xyz  --align --correct_scale
 ```
-![image-20200301142543624](/home/robot/tmp/github/hw/hw3/result.assets/image-20200301142543624.png)
+![image-20200301142543624](./result.assets/image-20200301142543624.png)
 
 ```
 evo_ape tum frame_traj_est_SOLVEPNP_MAX_COUNT.txt frame_traj_gt_SOLVEPNP_MAX_COUNT.txt  -va --plot --plot_mode xyz --save_results SOLVEPNP_MAX_COUNT_ape.zip
