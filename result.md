@@ -1,7 +1,5 @@
 
 
-
-
 ##  1. PnP 算法简单介绍
 
 ​	PnP(pespective-n-point) , 求解3D-2D点对运动的方法。在已知n个三维空间点坐标（相对于某个指定的坐标系A）及其二维投影位置的情况下，估计相机的位姿（即相机在坐标系A下的姿态）的方法。
@@ -48,41 +46,42 @@ flags - 默认使用CV_ITERATIV迭代法
 
 ### 3.0.  SOLVEPNP_ITERATIVE
 
-   ![image-20200301134449255](./result.assets/image-20200301134449255.png)
+​    ![image-20200307112446932](./result.assets/image-20200307112446932.png)
 
    
 
 ```
  evo_traj tum frame_traj_est_SOLVEPNP_ITERATIVE.txt --ref=frame_traj_gt_SOLVEPNP_ITERATIVE.txt -p --plot_mode xyz  --align --correct_scale
 ```
-![image-20200301140209334](./result.assets/image-20200301140209334.png)
+ ![image-20200307112604101](./result.assets/image-20200307112604101.png)
 
 ```
 evo_ape tum frame_traj_est_SOLVEPNP_ITERATIVE.txt frame_traj_gt_SOLVEPNP_ITERATIVE.txt  -va --plot --plot_mode xyz --save_results SOLVEPNP_ITERATIVE_ape.zip
-       max	0.434389
-      mean	0.178372
-    median	0.171207
-       min	0.039869
-      rmse	0.197632
-       sse	3.749621
-       std	0.085099
+       max      0.434389
+      mean      0.178372
+    median      0.171207
+       min      0.039869
+      rmse      0.197632
+       sse      3.749621
+       std      0.085099
 ```
 ```
 
  evo_rpe tum frame_traj_est_SOLVEPNP_ITERATIVE.txt frame_traj_gt_SOLVEPNP_ITERATIVE.txt  -va --plot --plot_mode xyz --save_results SOLVEPNP_ITERATIVE_rpe.zip
 
-       max	4.377182
-      mean	2.601915
-    median	2.644808
-       min	0.074727
-      rmse	2.779581
-       sse	733.976471
-       std	0.977806
+       max      4.377182
+      mean      2.601915
+    median      2.644808
+       min      0.074727
+      rmse      2.779581
+       sse      733.976471
+       std      0.977806
 ```
 ```
 evo_res SOLVEPNP_ITERATIVE_ape.zip -p --save_table SOLVEPNP_ITERATIVE_table.csv
 
-                          max      mean    median        min      rmse  \
+
+                           max      mean    median        min      rmse  \
 frame_traj_gt_SOL...  0.434389  0.178372  0.171207  0.0398691  0.197632   
 
                           sse        std  
@@ -93,32 +92,32 @@ frame_traj_gt_SOL...  3.74962  0.0850991
 
 
 ### 3.1. SOLVEPNP_EPNP
-   ![image-20200301134551802](./result.assets/image-20200301134551802.png)
+![image-20200307112820892](./result.assets/image-20200307112820892.png)
 ```
  evo_traj tum frame_traj_est_SOLVEPNP_EPNP.txt --ref=frame_traj_gt_SOLVEPNP_EPNP.txt -p --plot_mode xyz  --align --correct_scale
 ```
-![image-20200301141119561](./result.assets/image-20200301141119561.png)
+![image-20200307112856420](./result.assets/image-20200307112856420.png)
 
 ```
 evo_ape tum frame_traj_est_SOLVEPNP_EPNP.txt frame_traj_gt_SOLVEPNP_EPNP.txt  -va --plot --plot_mode xyz --save_results SOLVEPNP_EPNP_ape.zip
-       max	0.242836
-      mean	0.117471
-    median	0.114078
-       min	0.017015
-      rmse	0.126450
-       sse	1.534998
-       std	0.046799
+       max      0.242836
+      mean      0.117471
+    median      0.114078
+       min      0.017015
+      rmse      0.126450
+       sse      1.534998
+       std      0.046799
 ```
 ```
  evo_rpe tum frame_traj_est_SOLVEPNP_EPNP.txt frame_traj_gt_SOLVEPNP_EPNP.txt  -va --plot --plot_mode xyz --save_results SOLVEPNP_EPNP_rpe.zip
 
-       max	4.352881
-      mean	2.587162
-    median	2.637466
-       min	0.074727
-      rmse	2.763539
-       sse	725.528841
-       std	0.971461
+       max      4.352881
+      mean      2.587162
+    median      2.637466
+       min      0.074727
+      rmse      2.763539
+       sse      725.528841
+       std      0.971461
 ```
 ```
 evo_res SOLVEPNP_EPNP_ape.zip -p --save_table SOLVEPNP_EPNP_table.csv
@@ -127,40 +126,40 @@ evo_res SOLVEPNP_EPNP_ape.zip -p --save_table SOLVEPNP_EPNP_table.csv
 frame_traj_gt_SOL...  0.242836  0.117471  0.114078  0.0170151  0.12645  1.535   
 
                             std  
-frame_traj_gt_SOL...  0.0467992  
+frame_traj_gt_SOL...  0.0467992 
 ```
 
 
 ### 3.2. SOLVEPNP_P3P
 
-   ![image-20200301134638955](./result.assets/image-20200301134638955.png)
+![image-20200307113101428](./result.assets/image-20200307113101428.png)
 
 ```
  evo_traj tum frame_traj_est_SOLVEPNP_P3P.txt --ref=frame_traj_gt_SOLVEPNP_P3P.txt -p --plot_mode xyz  --align --correct_scale
 ```
-![image-20200301141432883](./result.assets/image-20200301141432883.png)
+![image-20200307113134027](./result.assets/image-20200307113134027.png)
 
 ```
 evo_ape tum frame_traj_est_SOLVEPNP_P3P.txt frame_traj_gt_SOLVEPNP_P3P.txt  -va --plot --plot_mode xyz --save_results SOLVEPNP_P3P_ape.zip
-       max	0.246748
-      mean	0.116399
-    median	0.108588
-       min	0.040195
-      rmse	0.124018
-       sse	1.476530
-       std	0.042799
+
+       max      0.246748
+      mean      0.116399
+    median      0.108588
+       min      0.040195
+      rmse      0.124018
+       sse      1.476530
+       std      0.042799
 ```
 ```
 
  evo_rpe tum frame_traj_est_SOLVEPNP_P3P.txt frame_traj_gt_SOLVEPNP_P3P.txt  -va --plot --plot_mode xyz --save_results SOLVEPNP_P3P_rpe.zip
-
-       max	4.376081
-      mean	2.589348
-    median	2.609933
-       min	0.031821
-      rmse	2.764878
-       sse	726.232326
-       std	0.969448
+       max      4.376081
+      mean      2.589348
+    median      2.609933
+       min      0.031821
+      rmse      2.764878
+       sse      726.232326
+       std      0.969448
 ```
 ```
 evo_res SOLVEPNP_P3P_ape.zip -p --save_table SOLVEPNP_P3P_table.csv
@@ -169,45 +168,36 @@ evo_res SOLVEPNP_P3P_ape.zip -p --save_table SOLVEPNP_P3P_table.csv
 frame_traj_gt_SOL...  0.246748  0.116399  0.108588  0.0401949  0.124018   
 
                           sse        std  
-frame_traj_gt_SOL...  1.47653  0.0427988  
-0.246748
-0.116399
-0.108588
-0.0401949
-0.124018
-1.47653
-0.0427988 
+frame_traj_gt_SOL...  1.47653  0.0427988 
 ```
 
 ### 3.3. SOLVEPNP_DLS
-   ![image-20200301134714928](./result.assets/image-20200301134714928.png)
+![image-20200307113324916](./result.assets/image-20200307113324916.png)
 ```
  evo_traj tum frame_traj_est_SOLVEPNP_DLS.txt --ref=frame_traj_gt_SOLVEPNP_DLS.txt -p --plot_mode xyz  --align --correct_scale
 ```
-![image-20200301141829135](./result.assets/image-20200301141829135.png)
+![image-20200307113422974](./result.assets/image-20200307113422974.png)
 
 ```
 evo_ape tum frame_traj_est_SOLVEPNP_DLS.txt frame_traj_gt_SOLVEPNP_DLS.txt  -va --plot --plot_mode xyz --save_results SOLVEPNP_DLS_ape.zip
-       max	0.225975
-      mean	0.113513
-    median	0.106261
-       min	0.035635
-      rmse	0.122289
-       sse	1.435645
-       std	0.045492
+       max      0.225975
+      mean      0.113513
+    median      0.106261
+       min      0.035635
+      rmse      0.122289
+       sse      1.435645
+       std      0.045492
 ```
 ```
 
  evo_rpe tum frame_traj_est_SOLVEPNP_DLS.txt frame_traj_gt_SOLVEPNP_DLS.txt  -va --plot --plot_mode xyz --save_results SOLVEPNP_DLS_rpe.zip
-
-       max	4.333318
-      mean	2.583120
-    median	2.601981
-       min	0.017241
-      rmse	2.759503
-       sse	723.411568
-       std	0.970746
-
+       max      4.333318
+      mean      2.583120
+    median      2.601981
+       min      0.017241
+      rmse      2.759503
+       sse      723.411568
+       std      0.970746
 ```
 ```
 evo_res SOLVEPNP_DLS_ape.zip -p --save_table SOLVEPNP_DLS_table.csv
@@ -217,41 +207,38 @@ frame_traj_gt_SOL...  0.225975  0.113513  0.106261  0.0356351  0.122289
 
                           sse        std  
 frame_traj_gt_SOL...  1.43565  0.0454917  
-
 ```
 
 ### 3.4. SOLVEPNP_UPNP
-   ![image-20200301134824018](./result.assets/image-20200301134824018.png)
+   ![image-20200307113637587](./result.assets/image-20200307113637587.png)
 ```
  evo_traj tum frame_traj_est_SOLVEPNP_UPNP.txt --ref=frame_traj_gt_SOLVEPNP_UPNP.txt -p --plot_mode xyz  --align --correct_scale
 ```
-![image-20200301142132110](./result.assets/image-20200301142132110.png)
+![image-20200307113708853](./result.assets/image-20200307113708853.png)
 
 ```
 evo_ape tum frame_traj_est_SOLVEPNP_UPNP.txt frame_traj_gt_SOLVEPNP_UPNP.txt  -va --plot --plot_mode xyz --save_results SOLVEPNP_UPNP_ape.zip
-       max	0.218468
-      mean	0.106990
-    median	0.094463
-       min	0.033494
-      rmse	0.115861
-       sse	1.288688
-       std	0.044462
+       max      0.218468
+      mean      0.106990
+    median      0.094463
+       min      0.033494
+      rmse      0.115861
+       sse      1.288688
+       std      0.044462
 ```
 ```
 
  evo_rpe tum frame_traj_est_SOLVEPNP_UPNP.txt frame_traj_gt_SOLVEPNP_UPNP.txt  -va --plot --plot_mode xyz --save_results SOLVEPNP_UPNP_rpe.zip
-
-       max	4.361522
-      mean	2.585335
-    median	2.631826
-       min	0.016013
-      rmse	2.760945
-       sse	724.167897
-       std	0.968950
+       max      4.361522
+      mean      2.585335
+    median      2.631826
+       min      0.016013
+      rmse      2.760945
+       sse      724.167897
+       std      0.968950
 ```
 ```
 evo_res SOLVEPNP_UPNP_ape.zip -p --save_table SOLVEPNP_UPNP_table.csv
-
                            max     mean     median        min      rmse  \
 frame_traj_gt_SOL...  0.218468  0.10699  0.0944627  0.0334936  0.115861   
 
@@ -260,33 +247,33 @@ frame_traj_gt_SOL...  1.28869  0.0444622
 ```
 
 ### 3.5. SOLVEPNP_AP3P
-   ![image-20200301134923696](./result.assets/image-20200301134923696.png)
+![image-20200307113903657](./result.assets/image-20200307113903657.png)
 ```
  evo_traj tum frame_traj_est_SOLVEPNP_AP3P.txt --ref=frame_traj_gt_SOLVEPNP_AP3P.txt -p --plot_mode xyz  --align --correct_scale
 ```
-![image-20200301142342844](./result.assets/image-20200301142342844.png)
+ ![image-20200307113947514](./result.assets/image-20200307113947514.png)
 
 ```
 evo_ape tum frame_traj_est_SOLVEPNP_AP3P.txt frame_traj_gt_SOLVEPNP_AP3P.txt  -va --plot --plot_mode xyz --save_results SOLVEPNP_AP3P_ape.zip
-       max	0.236128
-      mean	0.105609
-    median	0.097849
-       min	0.034734
-      rmse	0.116205
-       sse	1.296356
-       std	0.048481
+       max      0.236128
+      mean      0.105609
+    median      0.097849
+       min      0.034734
+      rmse      0.116205
+       sse      1.296356
+       std      0.048481
 ```
 ```
 
  evo_rpe tum frame_traj_est_SOLVEPNP_AP3P.txt frame_traj_gt_SOLVEPNP_AP3P.txt  -va --plot --plot_mode xyz --save_results SOLVEPNP_AP3P_rpe.zip
 
-       max	4.316022
-      mean	2.581949
-    median	2.619087
-       min	0.016013
-      rmse	2.758708
-       sse	722.994698
-       std	0.971603
+       max      4.316022
+      mean      2.581949
+    median      2.619087
+       min      0.016013
+      rmse      2.758708
+       sse      722.994698
+       std      0.971603
 ```
 ```
 evo_res SOLVEPNP_AP3P_ape.zip -p --save_table SOLVEPNP_AP3P_table.csv
@@ -295,37 +282,40 @@ evo_res SOLVEPNP_AP3P_ape.zip -p --save_table SOLVEPNP_AP3P_table.csv
 frame_traj_gt_SOL...  0.236128  0.105609  0.0978492  0.034734  0.116205   
 
                           sse        std  
-frame_traj_gt_SOL...  1.29636  0.0484811  
+frame_traj_gt_SOL...  1.29636  0.0484811 
 ```
 
 ### 3.6.  SOLVEPNP_MAX_COUNT
-      ![image-20200301134951151](./result.assets/image-20200301134951151.png)
+
+![image-20200307114225029](./result.assets/image-20200307114225029.png)
+
+
+
 ```
  evo_traj tum frame_traj_est_SOLVEPNP_MAX_COUNT.txt --ref=frame_traj_gt_SOLVEPNP_MAX_COUNT.txt -p --plot_mode xyz  --align --correct_scale
 ```
-![image-20200301142543624](./result.assets/image-20200301142543624.png)
+![](./result.assets/image-20200307114302991.png)
 
 ```
 evo_ape tum frame_traj_est_SOLVEPNP_MAX_COUNT.txt frame_traj_gt_SOLVEPNP_MAX_COUNT.txt  -va --plot --plot_mode xyz --save_results SOLVEPNP_MAX_COUNT_ape.zip
-       max	0.262875
-      mean	0.090947
-    median	0.078453
-       min	0.025371
-      rmse	0.101519
-       sse	0.989395
-       std	0.045109
+       max      0.262875
+      mean      0.090947
+    median      0.078453
+       min      0.025371
+      rmse      0.101519
+       sse      0.989395
+       std      0.045109
 ```
 ```
 
  evo_rpe tum frame_traj_est_SOLVEPNP_MAX_COUNT.txt frame_traj_gt_SOLVEPNP_MAX_COUNT.txt  -va --plot --plot_mode xyz --save_results SOLVEPNP_MAX_COUNT_rpe.zip
-
-       max	4.313694
-      mean	2.582501
-    median	2.616074
-       min	0.016013
-      rmse	2.758629
-       sse	722.953111
-       std	0.969907
+       max      4.313694
+      mean      2.582501
+    median      2.616074
+       min      0.016013
+      rmse      2.758629
+       sse      722.953111
+       std      0.969907
 ```
 ```
 evo_res SOLVEPNP_MAX_COUNT_ape.zip -p --save_table SOLVEPNP_MAX_COUNT_table.csv
@@ -334,8 +324,7 @@ evo_res SOLVEPNP_MAX_COUNT_ape.zip -p --save_table SOLVEPNP_MAX_COUNT_table.csv
 frame_traj_gt_SOL...  0.262875  0.0909472  0.0784525  0.0253707  0.101519   
 
                            sse        std  
-frame_traj_gt_SOL...  0.989395  0.0451088 
-
+frame_traj_gt_SOL...  0.989395  0.0451088  
 
 ```
 
@@ -354,45 +343,58 @@ SOLVEPNP_MAX_COUNT
 
 evo_ape(计算绝对位姿误差）
 
-| **param** | **0**    | **1**    | **2**    | **3**    | **4**        | **5**    | **6**        |
-| --------- | -------- | -------- | -------- | -------- | ------------ | -------- | ------------ |
-| max       | 0.434389 | 0.242836 | 0.246748 | 0.225975 | 0.218468     | 0.236128 | 0.262875     |
-| mean      | 0.178372 | 0.117471 | 0.116399 | 0.113513 | 0.10699      | 0.105609 | **0.090947** |
-| median    | 0.171207 | 0.114078 | 0.108588 | 0.106261 | 0.094463     | 0.097849 | 0.078453     |
-| min       | 0.039869 | 0.017015 | 0.040195 | 0.035635 | 0.033494     | 0.034734 | 0.025371     |
-| rmse      | 0.197632 | 0.12645  | 0.124018 | 0.122289 | 0.115861     | 0.116205 | 0.101519     |
-| sse       | 3.749621 | 1.534998 | 1.47653  | 1.435645 | 1.288688     | 1.296356 | **0.989395** |
-| std       | 0.085099 | 0.046799 | 0.042799 | 0.045492 | **0.044462** | 0.048481 | 0.045109     |
+| **param** | **0**    | **1**        | **2**        | **3**    | **4**        | **5**    | **6**        |
+| --------- | -------- | ------------ | ------------ | -------- | ------------ | -------- | ------------ |
+| max       | 0.434389 | 0.242836     | 0.246748     | 0.225975 | **0.218468** | 0.236128 | 0.262875     |
+| mean      | 0.178372 | 0.117471     | 0.116399     | 0.113513 | 0.10699      | 0.105609 | **0.090947** |
+| median    | 0.171207 | 0.114078     | 0.108588     | 0.106261 | 0.094463     | 0.097849 | **0.078453** |
+| min       | 0.039869 | **0.017015** | 0.040195     | 0.035635 | 0.033494     | 0.034734 | 0.025371     |
+| rmse      | 0.197632 | 0.12645      | 0.124018     | 0.122289 | 0.115861     | 0.116205 | **0.101519** |
+| sse       | 3.749621 | 1.534998     | 1.47653      | 1.435645 | 1.288688     | 1.296356 | **0.989395** |
+| std       | 0.085099 | 0.046799     | **0.042799** | 0.045492 | 0.044462     | 0.048481 | 0.045109     |
 
 **evo_rpe(计算相对位姿误差)**
 
-| **param** | **0**      | **1**      | **2**      | **3**      | **4**       | **5**      | **6**        |
-| --------- | ---------- | ---------- | ---------- | ---------- | ----------- | ---------- | ------------ |
-| max       | 4.377182   | 4.352881   | 4.376081   | 4.333318   | 4.361522    | 4.316022   | 4.313694     |
-| mean      | 2.601915   | 2.587162   | 2.589348   | 2.58312    | 2.585335    | 2.581949   | 2.582501     |
-| median    | 2.644808   | 2.637466   | 2.609933   | 2.601981   | 2.631826    | 2.619087   | **2.616074** |
-| min       | 0.074727   | 0.074727   | 0.031821   | 0.017241   | 0.016013    | 0.016013   | 0.016013     |
-| rmse      | 2.779581   | 2.763539   | 2.764878   | 2.759503   | 2.760945    | 2.758708   | **2.758629** |
-| sse       | 733.976471 | 725.528841 | 726.232326 | 723.411568 | 724.167897  | 722.994698 | 722.953111   |
-| std       | 0.977806   | 0.971461   | 0.969448   | 0.970746   | **0.96895** | 0.971603   | 0.969907     |
+| **param** | **0**      | **1**      | **2**      | **3**        | **4**        | **5**        | **6**          |
+| --------- | ---------- | ---------- | ---------- | ------------ | ------------ | ------------ | -------------- |
+| max       | 4.377182   | 4.352881   | 4.376081   | 4.333318     | 4.361522     | 4.316022     | **4.313694**   |
+| mean      | 2.601915   | 2.587162   | 2.589348   | 2.58312      | 2.585335     | **2.581949** | 2.582501       |
+| median    | 2.644808   | 2.637466   | 2.609933   | **2.601981** | 2.631826     | 2.619087     | 2.616074       |
+| min       | 0.074727   | 0.074727   | 0.031821   | 0.017241     | **0.016013** | **0.016013** | **0.016013**   |
+| rmse      | 2.779581   | 2.763539   | 2.764878   | 2.759503     | 2.760945     | 2.758708     | 2.758629       |
+| sse       | 733.976471 | 725.528841 | 726.232326 | 723.411568   | 724.167897   | 722.994698   | **722.953111** |
+| std       | 0.977806   | 0.971461   | 0.969448   | 0.970746     | **0.96895**  | 0.971603     | 0.969907       |
 
 **evo_res(结果比较)**
 
-| **param**                        | **0**                                                        | **1**                                                        | **2**                                                        | **3**                                                        | **4**                                                        | **5**                                                        | **6**                                                        |
-| -------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| max mean median min rmse sse Std | 0.434389 0.178372 0.171207 0.0398691 0.197632 3.74962 0.0850991 | 0.242836 0.117471 0.114078 0.0170151 0.12645 1.535 0.0467992 | 0.246748 0.116399 0.108588 0.0401949 0.124018 1.47653 0.0427988 | 0.225975 0.113513 0.106261 0.0356351 0.122289 1.43565 0.0454917 | 0.218468 0.10699 0.0944627 0.0334936 0.115861 1.28869 **0.0444622** | 0.236128 0.105609 0.0978492 0.034734 0.116205 1.29636 0.0484811 | 0.262875 **0.0909472** 0.0784525 0.0253707 **0.101519** 0.989395 0.0451088 |
+|      | max          | mean          | median        | min           | rmse         | sse          | std           |
+| ---- | ------------ | ------------- | ------------- | ------------- | ------------ | ------------ | ------------- |
+| 0    | 0.434389     | 0.178372      | 0.171207      | 0.0398691     | 0.197632     | 3.74962      | 0.0850991     |
+| 1    | 0.242836     | 0.117471      | 0.114078      | **0.0170151** | 0.12645      | 1.535        | 0.0467992     |
+| 2    | 0.246748     | 0.116399      | 0.108588      | 0.0401949     | 0.124018     | 1.47653      | **0.0427988** |
+| 3    | 0.225975     | 0.113513      | 0.106261      | 0.0356351     | 0.122289     | 1.43565      | 0.0454917     |
+| 4    | **0.218468** | 0.10699       | 0.0944627     | 0.0334936     | 0.115861     | 1.28869      | 0.0444622     |
+| 5    | 0.236128     | 0.105609      | 0.0978492     | 0.034734      | 0.116205     | 1.29636      | 0.0484811     |
+| 6    | 0.262875     | **0.0909472** | **0.0784525** | 0.0253707     | **0.101519** | **0.989395** | 0.0451088     |
 
 整个轨迹估计时间消耗（ms）, 基本都在4 sec左右
 
-| **param** | **0**   | **1**   | **2**   | **3**   | **4**   | **5**   | **6**   |
-| --------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- |
-| time      | 4087322 | 4007796 | 3819130 | 3435533 | 3819258 | 3712575 | 3041394 |
+| **param** | **0**   | **1**   | **2**   | **3**   | **4**   | **5**   | **6**       |
+| --------- | ------- | ------- | ------- | ------- | ------- | ------- | ----------- |
+| time      | 5704151 | 6099984 | 5622415 | 4662723 | 4643438 | 5104300 | **4497043** |
 
 综合比较， SOLVEPNP_MAX_COUNT 方法估计的精度更加准确可靠，整体方法比对相差不大.
+
+```
+1）一般VO看RPE，有闭环的SLAM系统ATE RPE都要看；
+2）RPE反映了VO局部轨迹的精度情况，相当于是只使用某个轨迹点附近的一段轨迹计算误差，ATE则是使用全部长度的轨迹真值计算误差。
+3）VO不带闭环，跑久了之后轨迹不可避免有漂移，如果计算ATE误差的话，相比那些有闭环的系统误差就太大了，并不是很公平，所以VO和带闭环的SLAM的话只比较RPE是相对公平的
+```
 
 ## 4. 注意点
 
 1. solvePnPRansac 求得的R.t 为 相机的世界坐标在相机坐标系下的表示。
+2. solvePnPRansac参数列表(带缺省较多)，运用网上例子调用出错。 下回注意check opencv的api手册
 
 
 

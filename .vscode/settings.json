@@ -117,5 +117,6 @@
         "twc",
         "upnp",
         "used"
-    ]
+    ],
+    "python.pythonPath": "/home/robot/anaconda3/envs/tensorflow1.12/bin/python"
 }
