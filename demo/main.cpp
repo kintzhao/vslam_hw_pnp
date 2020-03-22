@@ -407,7 +407,8 @@ int main(int argc, char** argv)
 
             // TODO homework
             cv::Mat R_vec, T_vec;
-	        solvePnPRansac(obj_pts, img_pts, cv_K, cv::Mat::zeros(4, 1, CV_64FC1), R_vec, T_vec, false,100, current_method);
+	        solvePnPRansac(obj_pts, img_pts, cv_K, cv::Mat::zeros(4, 1, CV_64FC1), R_vec, T_vec, false,100, 
+                        8.0， 0.99， noArray()，current_method);
 	        //solveP3P(obj_pts, img_pts, cv_K, cv::Mat::zeros(4, 1, CV_64FC1), R_vec, T_vec, cv::SOLVEPNP_EPNP);
             //std::cout<<"R_vec: "<<R_vec<<" T_vec: "<<T_vec<<std::endl;
 
